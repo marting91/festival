@@ -1,10 +1,14 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
 .header {
-    background-color: $verde;
+    background-color: v.$verde;
 
     .contenido-header {
-        padding: $separacion / 2 0;
+        // padding: calc(v.$separacion / 2) 0;
+        padding: 2rem;
 
-        @include tablet {
+        @include m.tablet {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -12,26 +16,35 @@
     }
 
     h1 {
-        color: $blanco;
-        margin-bottom: 1rem;
+        color: v.$blanco;
         text-align: center;
-        @include tablet {
+
+        @include m.tablet {
             margin-bottom: 0;
         }
     }
 }
 
 .navegacion-principal {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
+    @include m.tablet {
+        display: flex;
+        gap: 2rem;
+        // justify-content: center;
+    }
 
     a {
-        color: $blanco;
+        display: block;
+        text-align: center;
+        color: v.$blanco;
         font-size: 2rem;
+        margin-bottom: 1rem;
+
+        @include m.tablet {
+            margin: 0;
+        }
 
         &:hover {
-            color: $amarillo;
+            color: v.$amarillo;
         }
     }
 }
