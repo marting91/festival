@@ -19,7 +19,7 @@
 @mixin grid($col, $gap) {
     display: grid;
     grid-template-columns: repeat($col, 1fr);
-    column-gap: $gap;
+    gap: $gap;
 }
 
 @mixin reset-list {

@@ -12,6 +12,10 @@ html {
 body {
     font-size: 1.6rem;
     font-family: v.$fuentePrincipal;
+
+    &.fix-body {
+      overflow: hidden;
+    }
 }
 
 p {

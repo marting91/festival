@@ -60,13 +60,22 @@ function versionAvif( done ) {
     done();
 }
 
+function javascript( done ) {
+  src( 'src/js/**/*.js' )
+    .pipe( dest('build/js') );
+
+    done();
+}
+
 function dev(done) {
     watch( 'src/scss/**/*.scss', css ); // ** = Todas las carpetas / * = Todos los archivos
+    watch( 'src/js/**/*.js', javascript ); // ** = Todas las carpetas / * = Todos los archivos
     done();
 }
 
 // exports.css = css;
 exports.versionWebp = versionWebp;
+exports.javascript = javascript;
 exports.versionAvif = versionAvif;
 exports.dev = dev;
 exports.imagenes = imagenes;
