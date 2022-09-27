@@ -3,6 +3,10 @@ const { parallel, src, dest, watch } = require( 'gulp' );
 // CSS
 const sass = require( 'gulp-sass' )( require( 'sass' ) );
 const plumber = require('gulp-plumber');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
 
 // Imágenes
 const cache = require('gulp-cache');
@@ -13,11 +17,14 @@ const avif = require('gulp-avif');
 // Funcion que compila SASS
 function css(done) {
     src( 'src/scss/**/*.scss' ) // Identificar el .scss a compilar
-        .pipe( plumber() )
-        .pipe( sass( {
-            outputStyle: 'expanded' // para minificar es "compressed"
-        } ) ) // Compilarlo
-        .pipe( dest( './build/css' ) ) // Almacenar en el disco duro
+      .pipe( sourcemaps.init() )
+      .pipe( plumber() )
+      .pipe( sass( {
+          outputStyle: 'expanded' // para minificar es "compressed"
+      } ) ) // Compilarlo
+      .pipe( postcss( [autoprefixer(), cssnano()] ) )
+      .pipe( sourcemaps.write('.') )
+      .pipe( dest( './build/css' ) ) // Almacenar en el disco duro
 
     done();
 }
@@ -73,7 +80,7 @@ function dev(done) {
     done();
 }
 
-// exports.css = css;
+exports.css = css;
 exports.versionWebp = versionWebp;
 exports.javascript = javascript;
 exports.versionAvif = versionAvif;
