@@ -4,6 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function startApp() {
   createGallery();
+  scrollNav();
+}
+
+function scrollNav() {
+  const links = document.querySelectorAll('.navegacion-principal a');
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const sectionToScroll = e.target.attributes.href.value;
+      const section = document.querySelector(sectionToScroll);
+      section.scrollIntoView({ behavior: 'smooth' });
+    })
+  })
 }
 
 function createGallery() {
