@@ -3,8 +3,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function startApp() {
+  fixedNav();
   createGallery();
   scrollNav();
+}
+
+function fixedNav() {
+  const nav = document.querySelector('.header');
+  const aboutFestival = document.querySelector('.sobre-festival');
+  const body = document.querySelector('body');
+
+  window.addEventListener('scroll', () => {
+
+    if ( 0 > aboutFestival.getBoundingClientRect().top ) {
+      nav.classList.add('fijo');
+      body.classList.add('body-scroll');
+    } else {
+      nav.classList.remove('fijo');
+      body.classList.remove('body-scroll');
+    }
+  })
 }
 
 function scrollNav() {
@@ -36,8 +54,6 @@ function createGallery() {
     }
 
     gallery.appendChild(image);
-
-    console.log(image);
   }
 }
 
