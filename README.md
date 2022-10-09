@@ -3,7 +3,7 @@
 ![Banner](src/img/grande/1.jpg)
 
 ## General Information 📝
-For this project I used HTML, SASS and JS (without libraries or frameworks) along with gulp for workflow automate.
+For this project I used HTML, SASS and JS (without libraries or frameworks) along with **GULP** for workflow automate.
 
 ## Project characteristics 🔍
 In **HTML** it incorporates the use of:
@@ -20,6 +20,6 @@ In **SASS** includes:
 * HTML5
 * CSS3
 * Javascript
-* Gulp
+* [Gulp](https://gulpjs.com/)
 * [Normalize](https://necolas.github.io/normalize.css/)
 * [Modernizr](https://modernizr.com/) (to verify *webp* image support)
